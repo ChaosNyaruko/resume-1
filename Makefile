@@ -2,6 +2,10 @@ SRC = $(wildcard *.tex)
 
 PDFS = $(SRC:.tex=.pdf)
 
+demo:
+	@echo $(SRC)
+	@echo $(PDFS)
+
 all:	clean pdf
 
 en:	clean xelatex resume.tex
