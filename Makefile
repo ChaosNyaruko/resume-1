@@ -2,6 +2,16 @@ SRC = $(wildcard *.tex)
 
 PDFS = $(SRC:.tex=.pdf)
 
+MYTEX := wft-zh_CN.tex
+MYTEX-EN := wft.tex
+wft:
+	@echo making ${MYTEX} ${MYTEX-EN}
+	rm -f wft.html wft.pdf wft-zh_CN.html wft-zh_CN.html
+	pandoc -t html --pdf-engine=xelatex ${MYTEX}  -o wft-zh_CN.html
+	xelatex  ${MYTEX}
+	pandoc -t html --pdf-engine=xelatex ${MYTEX-EN}  -o wft.html
+	xelatex  ${MYTEX-EN}
+
 demo:
 	@echo $(SRC)
 	@echo $(PDFS)
